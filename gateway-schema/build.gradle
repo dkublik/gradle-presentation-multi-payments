@@ -1,0 +1,46 @@
+
+description = 'Gateway :: Schema'
+
+configurations {
+    cxf_wsdl2j
+}
+
+ext.wsdlRoot = "${projectDir}/src/main/resources/wsdl/payments/"
+ext.generatedSources = "${buildDir}/generated-sources"
+ext.cxfGenSources = "${generatedSources}/cxf"
+
+dependencies {
+    compile lib.jaxb2_basics_runtime
+	cxf_wsdl2j lib.cxf_tools_wsdlto_frontend_jaxws
+	cxf_wsdl2j lib.cxf_tools_wsdlto_databinding_jaxb
+	cxf_wsdl2j lib.cxf_tools_common
+	cxf_wsdl2j lib.cxf_tools_wsdlto_core
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs += "${cxfGenSources}"
+        }
+    }
+}
+
+task wsdl2java_payments(type: JavaExec) {
+	ext.input = file("${wsdlRoot}/payments.wsdl")
+	ext.output = new File("${cxfGenSources}")
+	inputs.file input
+	outputs.dir output
+
+	main = 'org.apache.cxf.tools.wsdlto.WSDLToJava'
+	classpath = configurations.cxf_wsdl2j
+
+	args '-d', "${cxfGenSources}"
+	args '-exsh', 'true'
+	args '-verbose'
+	args '-validate'
+	args '-p', "pl.dk.payments.domain.transfer.client"
+	args "${wsdlRoot}/payments.wsdl"
+}
+
+compileJava.dependsOn("wsdl2java_payments")
+

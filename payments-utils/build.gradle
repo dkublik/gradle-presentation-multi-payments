@@ -1,0 +1,16 @@
+description = 'Payments :: Utils'
+
+dependencies {
+    compile lib.spring_context
+    compile lib.spring_beans
+    compile lib.commons_lang
+    compile lib.commons_codec
+    compile lib.slf4j_api
+    compile lib.log4j_over_slf4j
+    
+    testCompile lib.junit
+    testCompile lib.mockito_all
+    testCompile lib.spock_spring
+    testCompile lib.spring_test
+}
+

@@ -1,0 +1,105 @@
+ext {
+	payments_version = '1.0.11-SNAPSHOT'
+	spring_boot_version = '1.0.2.RELEASE'
+	spring_version = '4.0.5.RELEASE'
+	camel_version = '2.10.3'
+	junit_version = '4.11'
+	mockito_version = '1.9.5'
+	catch_exception_version = '1.0.4'
+	fest_assert_version = '1.4'
+	activemq_version = '5.8.0'
+	jaxb_version = '2.2.6'
+	jaxb2_commons_version = '0.6.4'
+	jersey_version = '1.17'
+	jetty_version = '8.1.12.v20130726'
+	logback_version = '1.0.13'
+	aspectj_version = '1.7.2'
+	hamcrest_version = '1.3'
+	guava_version = '14.0.1'
+	commons_codec_version = '1.8'
+	commons_beanutils_version = '1.8.3'
+	commons_lang_version = '2.6'
+	cxf_version = '2.7.6'
+	slf4j_version = '1.6.1'
+    spock_version = '0.7-groovy-2.0'
+    groovy_version = '2.1.6'
+    cglib_version = '2.2.2'
+    objenesis_version = '1.3'
+}
+
+ext.lib = [
+	// spring_boot:
+	spring_boot_gradle_plugin: "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}",
+	spring_boot_starter_web: "org.springframework.boot:spring-boot-starter-web:${spring_boot_version}",
+	spring_boot_starter_jetty: "org.springframework.boot:spring-boot-starter-jetty:${spring_boot_version}",
+	spring_boot_starter_actuator: "org.springframework.boot:spring-boot-starter-actuator:${spring_boot_version}",
+
+	// logging
+	logback_classic: "ch.qos.logback:logback-classic:${logback_version}",
+
+	// spring
+	spring_beans: "org.springframework:spring-beans:${spring_version}",
+	spring_context: "org.springframework:spring-context:${spring_version}",
+	spring_web: "org.springframework:spring-web:${spring_version}",
+	spring_webmvc: "org.springframework:spring-webmvc:${spring_version}",
+	spring_aop: "org.springframework:spring-aop:${spring_version}",
+	spring_core: "org.springframework:spring-core:${spring_version}",
+	spring_jms: "org.springframework:spring-jms:${spring_version}",
+	
+	// camel
+	camel_spring: "org.apache.camel:camel-spring:${camel_version}",
+	camel_jms: "org.apache.camel:camel-jms:${camel_version}",
+	camel_http: "org.apache.camel:camel-http:${camel_version}",
+	activemq_broker: "org.apache.activemq:activemq-broker:${activemq_version}",
+	activemq_client: "org.apache.activemq:activemq-client:${activemq_version}",
+			
+	// payments
+	payments_impl: "pl.dk.payments:payments-impl:${payments_version}",
+	gateway_schema: "pl.dk.payments:payments-schema:${payments_version}",
+	payments_utils: "pl.dk.payments:payments-utils:${payments_version}",
+	
+	// jetty
+	jetty_server: "org.eclipse.jetty:jetty-server:${jetty_version}",
+	jetty_webapp: "org.eclipse.jetty:jetty-webapp:${jetty_version}",
+		
+	// aspect
+	aspectjweaver: "org.aspectj:aspectjweaver:${aspectj_version}",
+	
+	// commons
+	commons_codec: "commons-codec:commons-codec:${commons_codec_version}",
+	commons_beanutils: "commons-beanutils:commons-beanutils:${commons_beanutils_version}",
+	commons_lang: 	"commons-lang:commons-lang:${commons_lang_version}",
+	jaxb2_basics_runtime: "org.jvnet.jaxb2_commons:jaxb2-basics-runtime:${jaxb2_commons_version}",
+	
+	// test
+	junit: "junit:junit:${junit_version}",
+	mockito_all: "org.mockito:mockito-all:${mockito_version}",
+	catch_exception: "com.googlecode.catch-exception:catch-exception:${catch_exception_version}",
+	fest_assert: "org.easytesting:fest-assert:${fest_assert_version}",
+	spring_test: "org.springframework:spring-test:${spring_version}",
+	hamcrest_all: "org.hamcrest:hamcrest-all:${hamcrest_version}",
+	guava: "com.google.guava:guava:${guava_version}",
+	guava_testlib: "com.google.guava:guava-testlib:${guava_version}",
+    spock_core: "org.spockframework:spock-core:${spock_version}",
+    spock_spring: "org.spockframework:spock-spring:${spock_version}",
+    cglib: "cglib:cglib-nodep:${cglib_version}",
+    objenesis: "org.objenesis:objenesis:${objenesis_version}",
+				  
+	//CXF-runtime
+	cxf_rt_ws_security: "org.apache.cxf:cxf-rt-ws-security:${cxf_version}",
+	cxf_rt_frontend_jaxws: "org.apache.cxf:cxf-rt-frontend-jaxws:${cxf_version}",
+	cxf_rt_transports_http: "org.apache.cxf:cxf-rt-transports-http:${cxf_version}",
+
+	//CXF-run
+	cxf_tools_wsdlto_frontend_jaxws: "org.apache.cxf:cxf-tools-wsdlto-frontend-jaxws:${cxf_version}",
+	cxf_tools_wsdlto_databinding_jaxb: "org.apache.cxf:cxf-tools-wsdlto-databinding-jaxb:${cxf_version}",
+	cxf_tools_common: "org.apache.cxf:cxf-tools-common:${cxf_version}",
+	cxf_tools_wsdlto_core: "org.apache.cxf:cxf-tools-wsdlto-core:${cxf_version}",
+	
+	// log	
+	slf4j_api: "org.slf4j:slf4j-api:${slf4j_version}",		
+	log4j_over_slf4j: "org.slf4j:log4j-over-slf4j:${slf4j_version}",
+  
+    // other
+    groovy: "org.codehaus.groovy:groovy-all:${groovy_version}",
+]

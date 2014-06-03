@@ -1,0 +1,51 @@
+
+
+description = 'Payments :: Impl'
+
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.2.RELEASE")
+    }
+}
+
+apply plugin: 'spring-boot'
+
+dependencies {
+	compile project(':gateway-schema')
+	compile project(':payments-utils')
+	compile project(':payments-api')
+	
+	compile(lib.spring_boot_starter_web) {
+		exclude module: "spring-boot-starter-tomcat"
+	}
+	compile lib.spring_boot_starter_jetty
+	compile lib.spring_boot_starter_actuator
+		
+    compile lib.commons_lang
+    compile lib.spring_aop
+    compile lib.aspectjweaver
+    compile lib.spring_context
+    compile lib.spring_jms
+    compile lib.spring_core
+    compile lib.spring_beans
+    compile lib.spring_web
+    compile lib.spring_webmvc
+    compile lib.guava
+    compile lib.cxf_rt_frontend_jaxws
+    compile lib.cxf_rt_transports_http
+    compile lib.jetty_server
+    compile lib.jetty_webapp
+    compile lib.slf4j_api
+    compile lib.log4j_over_slf4j
+    testCompile lib.spring_test
+    testCompile lib.junit
+    testCompile lib.mockito_all
+    testCompile lib.catch_exception
+    testCompile lib.fest_assert
+    testCompile lib.guava_testlib
+}

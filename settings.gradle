@@ -1,0 +1,4 @@
+include ':payments-impl',
+        ':payments-api',
+        ':gateway-schema',
+        ':payments-utils'

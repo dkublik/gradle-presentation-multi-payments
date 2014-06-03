@@ -1,0 +1,30 @@
+apply from: "libraries.gradle"
+
+allprojects  {
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+	apply plugin : 'eclipse'
+
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+	group = 'pl.dk'
+	version = '1.0.8-SNAPSHOT'
+
+    dependencies {
+        compile lib.groovy
+
+        testCompile(lib.spock_core) {
+            exclude group: 'junit'
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+
+        maven { url "http://repo.dk.pl/nexus/content/repositories/releases" }
+        maven { url "http://repo.dk.pl/nexus/content/repositories/snapshots" }
+    }
+}
+
